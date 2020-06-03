@@ -12,6 +12,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Show python version and build image name  
+      id: build_name
+      run: |
+        echo "::set-output name=image_name::${GITHUB_REF##*/}"
+    - name: tes
+      run: echo ${{steps.build_name.image_name}}
     - uses: actions/checkout@v2
     - name: Setup tmate session
       uses: mxschmitt/action-tmate@v2
